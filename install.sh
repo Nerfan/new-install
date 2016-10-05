@@ -46,4 +46,4 @@ dotfiles () {
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 }
 
-dotfiles
+echo "Please don't use this! It may break everything!"
