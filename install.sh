@@ -15,7 +15,7 @@ packages () {
 repos () {
     # i3 gaps
     mkdir ~/.i3gapsrepo/
-    git clone git@github.com:Airblader/i3.git ~/.i3gapsrepo/i3-gaps/
+    git clone https://github.com/Airblader/i3.git ~/.i3gapsrepo/i3-gaps/
     cd ~/.i3gapsrepo/i3-gaps/
 	# Dependencies
 	sudo apt -y install libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev dh-autoreconf
@@ -31,14 +31,14 @@ repos () {
 
 	# i3blocks-gaps
     cd ~/.i3gapsrepo/
-    git clone git@github.com:Airblader/i3blocks-gaps.git i3blocks-gaps/
+    git clone https://github.com/Airblader/i3blocks-gaps.git i3blocks-gaps/
     cd i3blocks-gaps/
     make
     cp i3blocks /usr/local/bin/i3blocks
 
 	# Powerline Fonts
 	cd ~/
-	git clone git@github.com:powerline/fonts.git powerlinefonts/
+	git clone https://github.com/powerline/fonts.git powerlinefonts/
 	cd powerlinefonts
     ./install.sh
     cd ..
@@ -50,7 +50,7 @@ repos () {
 
 dotfiles () {
     mkdir ~/.dotfiles
-    git clone git@github.com:Nerfan/dotfiles.git ~/.dotfiles
+    git clone https://github.com/Nerfan/dotfiles.git ~/.dotfiles
 
     # Link everything that should be linked.
     # Remove the existing file, if any, beforehand.
@@ -66,6 +66,7 @@ dotfiles () {
     rm -f ~/.Xmodmap
     ln -s ~/.dotfiles/Xmodmap ~/.Xmodmap
 
+    rm -rf ~/.config/
     mkdir ~/.config/
 
     ln -s ~/.dotfiles/i3/ ~/.config/i3
@@ -79,5 +80,7 @@ dotfiles () {
     mkdir ~/.config/nvim/
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 }
+repos
+dotfiles
 
-echo "Please don't use this! It may break everything!"
+#echo "Please don't use this! It may break everything!"
