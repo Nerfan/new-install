@@ -2,14 +2,14 @@
 
 
 packages () {
-    sudo apt install i3
-    sudo apt install neovim
-    sudo apt install zsh
-    sudp apt install xfce4-terminal
-    sudo apt install compton
-    sudo apt install redshift
-    sudo apt install git
-    sudo apt install curl
+    sudo apt -y install i3
+    sudo apt -y install neovim
+    sudo apt -y install zsh
+    sudp apt -y install xfce4-terminal
+    sudo apt -y install compton
+    sudo apt -y install redshift
+    sudo apt -y install git
+    sudo apt -y install curl
 }
 
 repos () {
@@ -18,7 +18,7 @@ repos () {
     git clone git@github.com:Airblader/i3.git ~/.i3gapsrepo/i3-gaps/
     cd ~/.i3gapsrepo/i3-gaps/
 	# Dependencies
-	sudo apt install libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev
+	sudo apt -y install libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev dh-autoreconf
 	# compile & install
 	autoreconf --force --install
 	rm -rf build/
@@ -68,11 +68,11 @@ dotfiles () {
 
     mkdir ~/.config/
 
-    ln -s ~/.dotfiles/i3/ ~/.config/i3/
-    ln -s ~/.dotfiles/i3blocks/ ~/.config/i3blocks/
-    ln -s ~/.dotfiles/xfce4/ ~/.config/xfce4/
-    ln -s ~/.dotfiles/ncmpcpp/ ~/.config/ncmpcpp/
-    ln -s ~/.dotfiles/fontconfig/ ~/.config/fontconfig/
+    ln -s ~/.dotfiles/i3/ ~/.config/i3
+    ln -s ~/.dotfiles/i3blocks/ ~/.config/i3blocks
+    ln -s ~/.dotfiles/xfce4/ ~/.config/xfce4
+    ln -s ~/.dotfiles/ncmpcpp/ ~/.config/ncmpcpp
+    ln -s ~/.dotfiles/fontconfig/ ~/.config/fontconfig
     ln -s ~/.dotfiles/compton.conf ~/.config/compton.conf
     ln -s ~/.dotfiles/redshift.conf ~/.config/redshift.conf
 
