@@ -1,7 +1,7 @@
 #!/bin/sh
 
 other () {
-    chmod u+s /usr/bin/xinit
+    sudo chmod u+s /usr/bin/xinit
     # Allow bitmap fonts
     sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
     sudo fc-cache -f -v
