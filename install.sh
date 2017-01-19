@@ -5,10 +5,11 @@ other () {
     # Allow bitmap fonts
     sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
     sudo fc-cache -f -v
+    echo "exec i3" > ~/.xinitrc
 }
 
 packages () {
-    sudo apt -y install i3 neovim zsh xfce4-terminal compton redshift git curl fonts-font-awesome python3-pip
+    sudo apt -y install i3 neovim zsh xfce4-terminal compton redshift git curl fonts-font-awesome python3-pip xinit
     pip3 install neovim
 }
 
@@ -86,9 +87,11 @@ dotfiles () {
 
     mkdir ~/.config/nvim/
     ln -s ~/.vimrc ~/.config/nvim/init.vim
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 packages
 repos
 dotfiles
+other
 
 #echo "Please don't use this! It may break everything!"
