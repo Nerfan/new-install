@@ -8,15 +8,8 @@ other () {
 }
 
 packages () {
-    sudo apt -y install i3
-    sudo apt -y install neovim
-    sudo apt -y install zsh
-    sudp apt -y install xfce4-terminal
-    sudo apt -y install compton
-    sudo apt -y install redshift
-    sudo apt -y install git
-    sudo apt -y install curl
-    sudo apt -y install fonts-font-awesome
+    sudo apt -y install i3 neovim zsh xfce4-terminal compton redshift git curl fonts-font-awesome python3-pip
+    pip3 install neovim
 }
 
 repos () {
