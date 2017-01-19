@@ -1,5 +1,11 @@
 #!/bin/sh
 
+other () {
+    chmod u+s /usr/bin/xinit
+    # Allow bitmap fonts
+    sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
+    sudo fc-cache -f -v
+}
 
 packages () {
     sudo apt -y install i3
@@ -10,6 +16,7 @@ packages () {
     sudo apt -y install redshift
     sudo apt -y install git
     sudo apt -y install curl
+    sudo apt -y install fonts-font-awesome
 }
 
 repos () {
@@ -34,7 +41,7 @@ repos () {
     git clone https://github.com/Airblader/i3blocks-gaps.git i3blocks-gaps/
     cd i3blocks-gaps/
     make
-    cp i3blocks /usr/local/bin/i3blocks
+    sudo cp i3blocks /usr/local/bin/i3blocks
 
 	# Powerline Fonts
 	cd ~/
@@ -46,6 +53,13 @@ repos () {
 
     # oh-my-zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+    # oh-my-zsh themes
+    cd ~/.oh-my-zsh/custom/
+    git clone https://github.com/Nerfan/zsh-themes.git
+    mv zsh-themes/* .
+    rm -rf zsh-themes
+    cd
 }
 
 dotfiles () {
@@ -80,6 +94,7 @@ dotfiles () {
     mkdir ~/.config/nvim/
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 }
+packages
 repos
 dotfiles
 
